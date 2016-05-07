@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/');
+var argv = require('minimist')(process.argv.slice(2));
+mongoose.connect('mongodb://' + argv.db +'/');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
